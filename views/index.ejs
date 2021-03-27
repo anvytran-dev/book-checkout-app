@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classroom Library</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Classroom Library</h1>
+  <h3>Want to check-out a book? Click: <i class="fa fa-check-square" aria-hidden="true"></i> </h3>
+
+  <h3>Want to return a book? Click: <i class="fa fa-arrow-left" aria-hidden="true"></i> </h3>
+
+  <h2>Book List</h2>
+
+  <ul class="messages">
+  <% for(var i=0; i<library.length; i++) {%>
+    <li class="message">
+
+      <span><i class=" fa fa-check-square" aria-hidden="true"></i></span>
+      
+
+    
+      <% if(library[i].checkOut === true) { %>
+
+        
+
+        <span class ="strikethrough"><%= library[i].title %></span>
+        <span class ="strikethrough"><%= library[i].author %></span>
+
+      <%} else { %>
+        
+        <span class ="title"><%= library[i].title %></span>
+        <span class ="author"><%= library[i].author %></span>
+
+      <% } %>
+
+
+      <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <h2>Add a Book</h2>
+
+  <form action="/messages" method="POST">
+    <input type="text" placeholder="title" name="title">
+    <input type="text" placeholder="author" name="author">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
